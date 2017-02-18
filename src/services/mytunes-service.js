@@ -17,8 +17,11 @@ function loadMytunes() {
 
 loadMytunes()
 
-export default {
-  getTracks() { },
+let myTunesService = {
+  getTracks() { 
+    console.log(myTunes)
+    return myTunes
+  },
   addTrack(track) {
     // OCCASIONALLY YOU WILL RUN INTO ISSUES WHERE VUE WILL BE
     // UNAWARE THAT A CHANGE HAS OCCURED TO YOUR DATA
@@ -28,7 +31,18 @@ export default {
     // YOU CAN READ MORE ABOUT VUE.SET HERE
     // https://vuejs.org/v2/api/#Vue-set
    },
-  removeTrack() { },
-  promoteTrack() { },
-  demoteTrack() { }
+  removeTrack(track) {
+    Vue.delete(myTunes, track.id)
+    saveMytunes()
+   },
+  promoteTrack(song) { 
+   Vue.set(myTunes, track.id, track)
+    saveMytunes()
+  },
+  demoteTrack(song) { 
+   Vue.set(myTunes, track.id, track)
+    saveMytunes()
+  }
 }
+
+export default myTunesService

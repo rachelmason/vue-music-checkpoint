@@ -1,4 +1,8 @@
-export default {
+
+
+let itunesService = {
+
+ 
   getMusicByArtist(artist) {
     var url = '//bcw-getter.herokuapp.com/?url=';
     var url2 = 'https://itunes.apple.com/search?term=' + artist;
@@ -6,3 +10,5 @@ export default {
     return fetch(apiUrl)
   }
 }
+
+export default itunesService
